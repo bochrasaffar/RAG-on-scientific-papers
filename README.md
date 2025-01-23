@@ -45,6 +45,7 @@ The index is made persistent between restarts and loaded into memory on startup 
 
 ## Solution Overview
 **Parsing PDF:**
+
 PDFs are read page per page using pypdf2 library, then passed to the the recursive text splitter from langchain to get divided into small chunks, for the chunking part, we leverage the use of overlapping to not lose the context between chunks. 
 When saved into FAISS index, we add metadata that includes the source of the chunk (document) as it is important later to deleted a single paper (it can also be important in case we want to filter when doing the retrieval part)
 
